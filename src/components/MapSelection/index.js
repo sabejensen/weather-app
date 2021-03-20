@@ -9,22 +9,15 @@ const MapSelection = (props) => {
 
   const [defaultLocation, setDefaultLocation] = useState(DefaultLocation);
 
-  const [location, setLocation] = useState(defaultLocation);
   const [zoom, setZoom] = useState(DefaultZoom);
 
   function handleChangeLocation (lat, lng){
-    setLocation({lat:lat, lng:lng})
     props.setCurrentLat(lat)
     props.setCurrentLng(lng)
   }
   
   function handleChangeZoom (newZoom){
     setZoom(newZoom);
-  }
-
-  function handleResetLocation(){
-    setDefaultLocation({ ... DefaultLocation});
-    setZoom(DefaultZoom);
   }
 
   return (
