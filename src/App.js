@@ -60,7 +60,7 @@ function App() {
     }
 
     refreshForecast()
-  }, [currentLat, unit]);
+  }, [currentLat, currentLng, unit]);
 
 
   return (
