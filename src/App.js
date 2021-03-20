@@ -54,30 +54,13 @@ function App() {
   useEffect(() => {
     const refreshForecast = async () => {
       let url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + currentLat.toString() + '&lon=' + currentLng.toString() + '&appid=60e806425103fe7664141785c6679a6d&units=' + unit
-      console.log('URL ', url)
       await fetch(url)
       .then(res => res.json())
       .then(data => setForecast(data));
     }
 
     refreshForecast()
-  }, [currentLat]);
-
-  useEffect(() => {
-    const refreshForecast = async () => {
-      let url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + currentLat.toString() + '&lon=' + currentLng.toString() + '&appid=60e806425103fe7664141785c6679a6d&units=' + unit
-      console.log('URL ', url)
-      await fetch(url)
-      .then(res => res.json())
-      .then(data => setForecast(data));
-    }
-
-    refreshForecast()
-  }, [unit]);
-
-  useEffect(() => {
-    console.log(forecast)
-  }, [forecast]);
+  }, [currentLat, unit]);
 
 
   return (
